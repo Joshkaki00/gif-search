@@ -5,6 +5,18 @@
    const app = express();
 
    // Middleware
+   const handlebars = require('express-handlebars');
+
+   const hbs = handlebars.create({
+       helpers: {
+           foo() { return 'FOO!'; },
+           bar() { return 'BAR!'; }
+       }
+   });
+
+   app.engine('handlebars', hbs.engine);
+   app.set('view engine', 'handlebars');
+   app.set('views', './views');
 
    // Routes
    app.get('/', (req, res) => {
