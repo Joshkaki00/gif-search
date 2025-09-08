@@ -4,6 +4,13 @@
    // App Setup
    const app = express();
 
+  // Tenor API
+  const Tenor = require("tenorjs").client({
+    "Key": "AIzaSyDU79S1tNtcVPjqgjfVB1TP27hb3WU1XI8",
+    "Filter": "high",
+    "Locale": "en_US",
+  });
+
    // Middleware
    const handlebars = require('express-handlebars');
 
@@ -34,13 +41,6 @@
              res.render('home', { gifs })
          }).catch(console.error);
    })
-
-   // Tenor API
-      const Tenor = require("tenorjs").client({
-     "Key": "AIzaSyDU79S1tNtcVPjqgjfVB1TP27hb3WU1XI8",
-     "Filter": "high",
-     "Locale": "en_US",
-   });
 
    // Start Server
    app.listen(3000, () => {
