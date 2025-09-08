@@ -24,6 +24,13 @@
      res.render('home')
    })
 
+   // Tenor API
+      const Tenor = require("tenorjs").client({
+     "Key": "TENOR_API_KEY", // Replace with your actual API key
+     "Filter": "high",
+     "Locale": "en_US",
+   });
+
    // Start Server
    app.listen(3000, () => {
      console.log('Gif Search listening on port localhost:3000!');
