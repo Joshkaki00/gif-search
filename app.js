@@ -26,7 +26,7 @@
 
    // Tenor API
       const Tenor = require("tenorjs").client({
-     "Key": "TENOR_API_KEY", // Replace with your actual API key
+     "Key": "AIzaSyDU79S1tNtcVPjqgjfVB1TP27hb3WU1XI8",
      "Filter": "high",
      "Locale": "en_US",
    });
