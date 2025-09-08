@@ -20,8 +20,9 @@
 
    // Routes
    app.get('/', (req, res) => {
+     console.log(req.query) // => "{ term: hey" }
      res.render('home')
-   });
+   })
 
    // Start Server
    app.listen(3000, () => {
