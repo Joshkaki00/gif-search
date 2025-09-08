@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Joshkaki00/gif-search/issues"
   },
-  "homepage": "https://github.com/Joshkaki00/gif-search#readme"
+  "homepage": "https://github.com/Joshkaki00/gif-search#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
