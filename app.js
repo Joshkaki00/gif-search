@@ -50,6 +50,9 @@
       }
   });
 
+    // Static Files
+   app.use(express.static('public'));
+
    // Start Server
    app.listen(3000, () => {
      console.log('Gif Search listening on port localhost:3000!');
