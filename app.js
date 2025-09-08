@@ -7,6 +7,9 @@
    // Middleware
 
    // Routes
+   app.get('/', (req, res) => {
+     res.send('Hello Squirrel');
+   });
 
    // Start Server
    app.listen(3000, () => {
