@@ -26,21 +26,29 @@
    app.set('views', './views');
 
    // Routes
-   app.get('/', (req, res) => {
-     // Handle the home page when we haven't queried yet
-     term = ""
-     if (req.query.term) {
-         term = req.query.term
-     }
-     // Tenor.search.Query("SEARCH KEYWORD HERE", "LIMIT HERE")
-     Tenor.Search.Query(term, "10")
-         .then(response => {
-             // store the gifs we get back from the search
-             const gifs = response;
-             // pass the gifs as an object into the home page
-             res.render('home', { gifs })
-         }).catch(console.error);
-   })
+  app.get('/', (req, res) => {
+      // Handle the home page when we haven't queried yet
+      let term = "";
+      if (req.query.term) {
+          term = req.query.term;
+      }
+
+      // Only search if we have a search term
+      if (term && term.trim() !== "") {
+          // Tenor.search.Query("SEARCH KEYWORD HERE", "LIMIT HERE")
+          Tenor.Search.Query(term, "10")
+              .then(response => {
+                  // store the gifs we get back from the search
+                  const gifs = response;
+                  // pass the gifs as an object into the home page
+                  res.render('home', { gifs, term });
+              })
+              .catch(console.error);
+      } else {
+          // No search term, just render the home page without gifs
+          res.render('home', { term });
+      }
+  });
 
    // Start Server
    app.listen(3000, () => {
